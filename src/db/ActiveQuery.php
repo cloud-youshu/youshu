@@ -17,7 +17,7 @@ class ActiveQuery extends \yii\db\ActiveQuery
         
         $softDeleteBehavior = $model->getBehavior('softDelete');
         if ($softDeleteBehavior) {
-            $this->andOnCondition([$softDeleteBehavior->deletedAtAttribute => 0]);
+            $this->andOnCondition([$model->tableName() . '.' . $softDeleteBehavior->deletedAtAttribute => 0]);
         }
     }
 }
