@@ -7,6 +7,7 @@ use yii\web\Response;
 
 class IndexAction extends Action
 {
+    public $user=null;
     /**
      * @inheritdoc
      */
@@ -23,6 +24,7 @@ class IndexAction extends Action
         return $this->renderHtmlResponse([
             'searchModel'  => $searchModel,
             'dataProvider' => $dataProvider,
+            'user' => $this->user
         ]);
     }
 }
